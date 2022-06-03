@@ -10,6 +10,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float speed = 1f;
     [SerializeField] private float jumpForce = 1f;
     [SerializeField] private float gravity = 10f;
+    private float _maxFallSpeed = -5f;
 
     private float _velocityX;
     private float _velocityY;
@@ -23,9 +24,12 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         _velocityY -= gravity * Time.deltaTime;
-        controller.Move(new Vector3(_velocityX, _velocityY, _velocityZ) * Time.deltaTime * speed);
+        if (_velocityY < _maxFallSpeed)
+            _velocityY = _maxFallSpeed;
+        controller.Move(new Vector3(_velocityX, _velocityY, _velocityZ) 
+                        * Time.deltaTime * speed);
+        transform.LookAt(transform.position + new Vector3(_velocityX, 0f, _velocityZ));
     }
 
     public void OnMove(InputValue value)
