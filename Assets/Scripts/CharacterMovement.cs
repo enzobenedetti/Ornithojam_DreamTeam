@@ -13,11 +13,14 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 1f;
     [SerializeField] private float gravity = 10f;
     [SerializeField] private float holdingStrengh;
-    private float _maxFallSpeed = -5f;
+    private float _maxFallSpeed = -2f;
 
     private float _velocityX;
     private float _velocityY;
     private float _velocityZ;
+
+    private RaycastHit _slopeHit;
+    private float _groundRayDistance = 1f;
 
     private GameObject _cubeHold;
     private bool _isHolding;
@@ -36,6 +39,9 @@ public class CharacterMovement : MonoBehaviour
         _velocityY -= gravity * Time.deltaTime;
         if (_velocityY < _maxFallSpeed)
             _velocityY = _maxFallSpeed;
+        
+        if (OnSteepSlope())
+            SteepSlopeMovement();
 
         if (_isHolding && _cubeHold)
         {
@@ -91,5 +97,27 @@ public class CharacterMovement : MonoBehaviour
             _cubeHold.transform.parent = null;
             _cubeHold = null;
         }
+    }
+
+    bool OnSteepSlope()
+    {
+        if (!controller.isGrounded) return false;
+        if (Physics.Raycast(transform.position, Vector3.down, out _slopeHit, 
+                (controller.height / 2) + _groundRayDistance))
+        {
+            float slopeAngle = Vector3.Angle(_slopeHit.normal, Vector3.up);
+            if (slopeAngle > controller.slopeLimit) return true;
+        }
+        return false;
+    }
+
+    void SteepSlopeMovement()
+    {
+        Vector3 slopeDirection = Vector3.up - _slopeHit.normal * Vector3.Dot(Vector3.up, _slopeHit.normal);
+
+        _velocityX += slopeDirection.x * -speed;
+        _velocityZ += slopeDirection.z * -speed;
+        _velocityY -= _slopeHit.point.y;
+
     }
 }
