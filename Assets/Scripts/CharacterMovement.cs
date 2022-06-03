@@ -39,11 +39,12 @@ public class CharacterMovement : MonoBehaviour
 
         if (_isHolding && _cubeHold)
         {
+            float holdbuffer = Vector3.Distance(transform.forward.normalized,
+                new Vector3(_velocityX, 0f, _velocityZ)) * 0.5f + 1f;
+            
             _cubeHold.GetComponent<Rigidbody>().AddForceAtPosition(new Vector3
-                (_velocityX, 0f, _velocityZ).normalized * holdingStrengh, transform.position);
+                (_velocityX, 0f, _velocityZ).normalized * (holdingStrengh + holdbuffer), transform.position);
             _cubeHold.GetComponent<Rigidbody>().angularVelocity /= 1.5f;
-            // _cubeHold.transform.localPosition = Vector3.forward;
-            // _cubeHold.transform.localRotation = Quaternion.identity;
         }
 
         controller.Move(new Vector3(_velocityX, _velocityY, _velocityZ)
@@ -74,8 +75,6 @@ public class CharacterMovement : MonoBehaviour
     public void OnAction()
     {
         _isHolding = !_isHolding;
-        if (!_cubeHold) return;
-        //_cubeHold.transform.parent = _isHolding ? transform : null;
     }
 
     private void OnTriggerEnter(Collider other)
