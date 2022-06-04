@@ -20,6 +20,8 @@ public class CharacterMovement : MonoBehaviour
     private float _timeBalise;
     private bool _justNotGrounded = true;
 
+    private Animator _animator;
+
     private float _velocityX;
     private float _velocityY;
     private float _velocityZ;
@@ -37,6 +39,7 @@ public class CharacterMovement : MonoBehaviour
     void Awake()
     {
         if (!controller) controller = GetComponent<CharacterController>();
+        if (!_animator) _animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -81,17 +84,23 @@ public class CharacterMovement : MonoBehaviour
         }
         else
         {
-            if (!_justNotGrounded) _justNotGrounded = true;
+            if (!_justNotGrounded)
+            {
+                _animator.SetBool("InAir", false);
+                _justNotGrounded = true;
+            }
         }
 
         if (!controller.isGrounded ||
             Vector2.Distance(new Vector2(_velocityX, _velocityZ), Vector2.zero) < 0.1f)
         {
             moveParticule.Stop();
+            _animator.SetBool("Walking", false);
         }
         else if (!moveParticule.isPlaying)
         {
             moveParticule.Play();
+            _animator.SetBool("Walking", true);
         }
         
         if (_velocityY < _maxFallSpeed)
@@ -129,7 +138,8 @@ public class CharacterMovement : MonoBehaviour
         if ((controller.isGrounded || Time.time <= _timeBalise + _coyoteTime) && !_isHolding)
         {
             _velocityY = Mathf.Sqrt(jumpForce);
-            Instantiate(jumpParticule, transform.position + Vector3.down/2f, Quaternion.identity);
+            Instantiate(jumpParticule, transform.position, Quaternion.identity);
+            _animator.SetBool("InAir", true);
         }
     }
 
