@@ -30,7 +30,7 @@ public class CharacterMovement : MonoBehaviour
     private bool _isSliding;
 
     private GameObject _cubeHold;
-    private bool _isHolding;
+    private bool _isHolding = false;
 
     private bool InPause;
     
@@ -161,7 +161,6 @@ public class CharacterMovement : MonoBehaviour
                 (controller.height / 2) + _groundRayDistance))
         {
             float slopeAngle = Vector3.Angle(_slopeHit.normal, Vector3.up);
-            Debug.Log(slopeAngle);
             if (Physics.Raycast(transform.position, Vector3.down, out _rayHit,
                     (controller.height / 2) + _groundRayDistance))
             {
@@ -185,5 +184,16 @@ public class CharacterMovement : MonoBehaviour
         _velocityZ = slopeDirection.z * -slideSpeed;
         _velocityY -= _slopeHit.point.y;
 
+    }
+
+    public void DoARespawn(Vector3 respawnPoint)
+    {
+        controller.enabled = false;
+        transform.position = respawnPoint;
+        Debug.Log(respawnPoint);
+        _velocityX = 0f;
+        _velocityY = 0f;
+        _velocityZ = 0f;
+        controller.enabled = true;
     }
 }
