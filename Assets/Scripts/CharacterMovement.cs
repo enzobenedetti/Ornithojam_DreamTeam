@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class CharacterMovement : MonoBehaviour
     private bool _justNotGrounded = true;
 
     private Animator _animator;
+
+    private float _timerSound;
+    public float frequencyStep = 0.3f;
+    public List<AudioClip> Clips;
 
     private float _velocityX;
     private float _velocityY;
@@ -72,7 +77,7 @@ public class CharacterMovement : MonoBehaviour
                 }
             }
         }
-        
+
         if (!controller.isGrounded)
         {
             _velocityY -= gravity * Time.deltaTime;
@@ -97,10 +102,19 @@ public class CharacterMovement : MonoBehaviour
             moveParticule.Stop();
             _animator.SetBool("Walking", false);
         }
-        else if (!moveParticule.isPlaying)
+        else
         {
-            moveParticule.Play();
-            _animator.SetBool("Walking", true);
+            _timerSound += Time.deltaTime;
+            if (_timerSound >= frequencyStep) {
+                AudioManager.Instance.PlaySound(Clips[Random.Range(0,Clips.Count)], 1f);
+                _timerSound = 0;
+            }
+            
+            if (!moveParticule.isPlaying)
+            {
+                moveParticule.Play();
+                _animator.SetBool("Walking", true);
+            }
         }
         
         if (_velocityY < _maxFallSpeed)

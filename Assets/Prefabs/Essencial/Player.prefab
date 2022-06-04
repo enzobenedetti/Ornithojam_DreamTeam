@@ -71,6 +71,10 @@ MonoBehaviour:
   jumpForce: 4
   gravity: 8
   holdingStrengh: 4
+  frequencyStep: 0.3
+  Clips:
+  - {fileID: 8300000, guid: a585f62d7cf5a7a47930ac109af2f3b5, type: 3}
+  - {fileID: 8300000, guid: eb5f31e630227254d92e17b4dd91a5d3, type: 3}
 --- !u!143 &2786395733296384709
 CharacterController:
   m_ObjectHideFlags: 0
