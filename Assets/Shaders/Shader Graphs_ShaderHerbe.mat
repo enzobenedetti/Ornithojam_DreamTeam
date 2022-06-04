@@ -45,7 +45,7 @@ Material:
     - _WindSpeed: 1
     - _windStreaght: 0.1
     m_Colors:
-    - _Color: {r: 0.0627451, g: 0.1254902, b: 0.050980397, a: 0}
+    - _Color: {r: 0.10129103, g: 0.6415094, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3033809714508003900
 MonoBehaviour:
