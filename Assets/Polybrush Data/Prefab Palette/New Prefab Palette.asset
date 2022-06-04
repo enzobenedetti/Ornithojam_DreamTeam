@@ -47,23 +47,23 @@ MonoBehaviour:
     name: TestGrass
   - gameObject: {fileID: 706331164528250916, guid: 81e8bc7b723aa9f48a957ea869748794, type: 3}
     settings:
-      m_Strength: 62.978996
+      m_Strength: 29.701685
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
-      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
-      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
-      m_UniformScale: {x: 1, y: 1}
-      m_UniformBool: 0
+      m_ScaleRangeMin: {x: 0.3, y: 0.3, z: 0.3}
+      m_ScaleRangeMax: {x: 0.6, y: 0.6, z: 0.6}
+      m_UniformScale: {x: 0.3, y: 0.5}
+      m_UniformBool: 1
       m_XRotationBool: 0
       m_YRotationBool: 0
       m_ZRotationBool: 0
-      m_XScaleBool: 0
-      m_YScaleBool: 0
-      m_ZScaleBool: 0
+      m_XScaleBool: 1
+      m_YScaleBool: 1
+      m_ZScaleBool: 1
     name: Grass_1
   - gameObject: {fileID: 6494358017422185220, guid: 34cf93d1658329349885474f1d3bf378, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 71.29832
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -95,7 +95,7 @@ MonoBehaviour:
     name: Grass_3
   - gameObject: {fileID: 2824777259802413247, guid: 11406439d78e96642a8ab4b2eb9c5a3c, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 65.05882
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -111,7 +111,7 @@ MonoBehaviour:
     name: Sapin 1
   - gameObject: {fileID: 6554443651250414057, guid: 40baaf85065bd4f4d8c19b3f23669a4e, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 69.21849
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -127,7 +127,7 @@ MonoBehaviour:
     name: Sapin 2
   - gameObject: {fileID: 5736966594036176608, guid: a5c0716b361deac419fecd7c1a0faa12, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 65.05883
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -141,3 +141,51 @@ MonoBehaviour:
       m_YScaleBool: 0
       m_ZScaleBool: 0
     name: Sapin 3
+  - gameObject: {fileID: 6653230451808203558, guid: 9e4aabb2592df6a4d8aee2c14beeccca, type: 3}
+    settings:
+      m_Strength: 23.462183
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 0.3, y: 0.5}
+      m_UniformBool: 1
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Caillou_1
+  - gameObject: {fileID: 126285922940179307, guid: d182226d15f6f9e4ab8d2fa8bc94d221, type: 3}
+    settings:
+      m_Strength: 15.142863
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 0.3, y: 0.5}
+      m_UniformBool: 1
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Caillou_2
+  - gameObject: {fileID: 3174768454064104667, guid: d3f424566bd41324aaf0cd1d5a0d02bd, type: 3}
+    settings:
+      m_Strength: 15.142863
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 0.2, y: 0.5}
+      m_UniformBool: 1
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Caillou_3
