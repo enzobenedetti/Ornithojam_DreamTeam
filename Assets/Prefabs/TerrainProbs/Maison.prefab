@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1598695482589571234}
+  - component: {fileID: 6626514319449119347}
   m_Layer: 0
   m_Name: Maison
   m_TagString: Untagged
@@ -37,6 +38,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6626514319449119347
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6694695871775588319}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.155447, y: 4.855583, z: 7.611829}
+  m_Center: {x: 0.032110214, y: 2.43289, z: 0.017983675}
 --- !u!1001 &621310922071772273
 PrefabInstance:
   m_ObjectHideFlags: 0
