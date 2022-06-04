@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b91822b56eeb96e4e97b67776d62a012, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.074257
+      value: -0.19
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b91822b56eeb96e4e97b67776d62a012, type: 3}
       propertyPath: m_LocalPosition.z
@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3959559874313404155, guid: b91822b56eeb96e4e97b67776d62a012, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e762ad4fcba8986449d458dd92f3fcb2, type: 2}
     - target: {fileID: 919132149155446097, guid: b91822b56eeb96e4e97b67776d62a012, type: 3}
       propertyPath: m_Name
       value: Tronc_sapin
@@ -112,7 +116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 096925b9ed0a2a446a56a2211f11abb7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.074257
+      value: -0.19000006
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 096925b9ed0a2a446a56a2211f11abb7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -146,6 +150,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5460918349330183012, guid: 096925b9ed0a2a446a56a2211f11abb7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b171d6b5d40a6b45974a2afe79daf12, type: 2}
     - target: {fileID: 919132149155446097, guid: 096925b9ed0a2a446a56a2211f11abb7, type: 3}
       propertyPath: m_Name
       value: Feuille_sapin_1
