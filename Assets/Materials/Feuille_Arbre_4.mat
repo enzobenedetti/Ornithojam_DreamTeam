@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Feuille_Arbre_2
+  m_Name: Feuille_Arbre_4
   m_Shader: {fileID: -6465566751694194690, guid: 64febbe6723ba9b4cb4750a737f0601e, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -122,8 +122,8 @@ Material:
     - _ZWrite: 1
     - _windStreaght: 0.1
     m_Colors:
-    - _BaseColor: {r: 0.7075472, g: 0.613505, b: 0.2236116, a: 1}
-    - _Color: {r: 0.7075472, g: 0.613505, b: 0.2236116, a: 1}
+    - _BaseColor: {r: 0.117831476, g: 0.1981132, b: 0.0999911, a: 1}
+    - _Color: {r: 0.07435516, g: 0.18867922, b: 0.0489498, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []

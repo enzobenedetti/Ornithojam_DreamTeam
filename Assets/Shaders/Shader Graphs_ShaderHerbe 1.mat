@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_ShaderHerbe
+  m_Name: Shader Graphs_ShaderHerbe 1
   m_Shader: {fileID: -6465566751694194690, guid: c861d7a789108a04d8a7a1868ff9463f, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 831a3715d5693b24982449dadaa95692, type: 3}
+        m_Texture: {fileID: 2800000, guid: 54efac37217a952489cb204aa0b3c425, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -38,7 +38,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaClipimg: 0.11
+    - _AlphaClipimg: 0.53
     - _QueueControl: 0
     - _QueueOffset: 0
     - _WindScale: 1
