@@ -40,11 +40,18 @@ public class CharacterMovement : MonoBehaviour
     private bool _isHolding = false;
 
     private bool InPause;
-    
+
+    public AudioClip nootNoot;
+
     void Awake()
     {
         if (!controller) controller = GetComponent<CharacterController>();
         if (!_animator) _animator = GetComponentInChildren<Animator>();
+    }
+
+    private void Start()
+    {
+        AudioManager.Instance.PlaySound(nootNoot, 1f);
     }
 
     // Update is called once per frame
