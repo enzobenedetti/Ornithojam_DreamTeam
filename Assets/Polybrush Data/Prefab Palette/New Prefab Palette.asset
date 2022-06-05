@@ -223,7 +223,7 @@ MonoBehaviour:
     name: Arbre 1
   - gameObject: {fileID: 6745032092439114603, guid: b795507e1d7a13c449ce75a3a201d6d4, type: 3}
     settings:
-      m_Strength: 60.89916
+      m_Strength: 1
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
