@@ -31,7 +31,7 @@ public class HUDCompoenent : MonoBehaviour
         TxtNarrator.text = text;
         CanvasGroupNarrator.DOPause();
         CanvasGroupNarrator.alpha = 1;
-        Invoke("FadeOutNarratorText",Mathf.Clamp(0,1000 , time-NarratorFadeOutTime));
+        Invoke("FadeOutNarratorText",time);
     }
 
     private void FadeOutNarratorText() {

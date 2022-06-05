@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
 {
    public static AudioManager Instance;
    public static float FXVolume=1;
+   public static float NarratorVolume=1;
    public static float MusicVolume=1;
 
    private void Awake() {
@@ -23,6 +24,13 @@ public class AudioManager : MonoBehaviour
       AudioSource audioSource = transform.AddComponent<AudioSource>();
       audioSource.clip = clip;
       audioSource.volume = FXVolume * volume;
+      audioSource.Play();
+      Destroy(audioSource , clip.length);
+   }
+   public void Playnarrator(AudioClip clip, float volume) {
+      AudioSource audioSource = transform.AddComponent<AudioSource>();
+      audioSource.clip = clip;
+      audioSource.volume = NarratorVolume * volume;
       audioSource.Play();
       Destroy(audioSource , clip.length);
    }
