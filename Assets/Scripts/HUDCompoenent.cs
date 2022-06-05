@@ -12,19 +12,19 @@ public class HUDCompoenent : MonoBehaviour
     [CanBeNull] public Image ImgZ, ImgQ, ImgS, ImgD, ImgGrabe, ImgJump;
 
     
-    public Sprite Z, Zpress, Q, Qpress, S, SPress, D, DPress, Space, SpacePress, Grabe, GrabePress;
+    public Sprite Key , KeyPress, Space, SpacePress, Mouse, MousePress;
     public TMP_Text TxtNarrator;
     public CanvasGroup CanvasGroupNarrator;
     public float NarratorFadeOutTime = 2f;
 
 
 
-    public void PressZ(bool value)=> ImgZ.sprite = value ? Color.gray : Color.white
-    public void PressQ(bool value)=> ImgQ.sprite = value ? Color.gray : Color.white;
-    public void PressS(bool value)=> ImgS.sprite = value ? Color.gray : Color.white;
-    public void PressD(bool value)=> ImgD.sprite = value ? Color.gray : Color.white;
-    public void PressSpace(bool value)=> ImgJump.color = value ? Color.gray : Color.white;
-    public void PressGrabe(bool value)=> ImgGrabe.color = value ? Color.gray : Color.white;
+    public void PressZ(bool value) => ImgZ.sprite = value ? KeyPress : Key;
+    public void PressQ(bool value)=> ImgQ.sprite = value ? KeyPress :Key;
+    public void PressS(bool value)=> ImgS.sprite = value ? KeyPress :Key;
+    public void PressD(bool value)=> ImgD.sprite = value ? KeyPress :Key;
+    public void PressSpace(bool value)=> ImgJump.sprite = value ? SpacePress : Space;
+    public void PressGrabe(bool value)=> ImgGrabe.sprite = value ? MousePress : Mouse;
 
     public void PlayNarrator(string text ,float time)
     {
