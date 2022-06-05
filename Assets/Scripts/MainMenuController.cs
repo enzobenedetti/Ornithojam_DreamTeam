@@ -27,7 +27,7 @@ public class MainMenuController : MonoBehaviour
 
     public void UIBPPlay() {
         Debug.Log("Lance le Jeu");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(7);
     }
 
     public void UIBPLevel() {
