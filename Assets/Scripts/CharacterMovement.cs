@@ -78,8 +78,10 @@ public class CharacterMovement : MonoBehaviour
             return;
         }
 
+        Debug.Log("On Ground is " +controller.isGrounded);
         if (OnSteepSlope())
         {
+            Debug.Log("OnSteepSlope");
             _isSliding = true;
             SteepSlopeMovement();
         }
@@ -89,10 +91,22 @@ public class CharacterMovement : MonoBehaviour
             {
                 if (controller.isGrounded)
                 {
-                    _velocityX = 0f;
-                    _velocityY = -1f;
-                    _velocityZ = 0f;
-                    _isSliding = false;
+                    Debug.Log("hello");
+                    Debug.DrawRay(transform.position + Vector3.up/2f, -transform.forward * _groundRayDistance, Color.blue);
+                    Debug.DrawRay(transform.position, Vector3.down *_groundRayDistance, Color.yellow);
+                    if (Physics.Raycast(transform.position + Vector3.up/2f, -transform.forward, out _rayHit, 
+                            (controller.height / 2) + _groundRayDistance) &&
+                        !Physics.Raycast(transform.position, Vector3.down, _groundRayDistance/(_groundRayDistance*2f)))
+                    {
+                        SteepSlopeMovement();
+                    }
+                    else
+                    {
+                        _velocityX = 0f;
+                        _velocityY = -1f;
+                        _velocityZ = 0f;
+                        _isSliding = false;
+                    }
                 }
                 else
                 {
@@ -216,19 +230,13 @@ public class CharacterMovement : MonoBehaviour
     bool OnSteepSlope()
     {
         if (!controller.isGrounded) return false;
-        if (Physics.SphereCast(transform.position, controller.radius, Vector3.down, out _slopeHit, 
-                (controller.height / 2) + _groundRayDistance))
+        if (Physics.Raycast(transform.position, Vector3.down, out _slopeHit, _groundRayDistance))
         {
+            Debug.DrawRay(transform.position, Vector3.down * _groundRayDistance, Color.red);
             float slopeAngle = Vector3.Angle(_slopeHit.normal, Vector3.up);
-            if (Physics.Raycast(transform.position, Vector3.down, out _rayHit,
-                    (controller.height / 2) + _groundRayDistance))
-            {
-                if (Vector3.Dot(_rayHit.normal, _slopeHit.normal) < 0.9f &&
-                    Vector3.Angle(_rayHit.normal, Vector3.up) <= controller.slopeLimit) return false;
-            }
-            else return false;
 
-            if (slopeAngle > controller.slopeLimit && slopeAngle < 89f) return true;
+            Debug.Log(slopeAngle);
+            if (slopeAngle > controller.slopeLimit) return true;
         }
         return false;
     }
@@ -236,12 +244,11 @@ public class CharacterMovement : MonoBehaviour
     void SteepSlopeMovement()
     {
         Vector3 slopeDirection = Vector3.up - _slopeHit.normal * Vector3.Dot(Vector3.up, _slopeHit.normal);
-        float slideSpeed = speed + 2f + Time.deltaTime;
+        float slideSpeed = speed + 1f + Time.deltaTime;
 
-        
         _velocityX = slopeDirection.x * -slideSpeed;
         _velocityZ = slopeDirection.z * -slideSpeed;
-        _velocityY -= _slopeHit.point.y;
+        _velocityY -= _slopeHit.point.y * slideSpeed;
 
     }
 
