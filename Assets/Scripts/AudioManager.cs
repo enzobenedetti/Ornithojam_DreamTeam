@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
    public static float FXVolume=1;
    public static float MusicVolume=1;
 
-   private void Start() {
+   private void Awake() {
       if (Instance!=null&&Instance != this) {
          Destroy(this);
          Debug.LogWarning("AUDIO MANAGER: Deux Singlthon dans la même Scène");

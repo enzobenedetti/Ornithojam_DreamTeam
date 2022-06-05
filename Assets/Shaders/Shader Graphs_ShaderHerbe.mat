@@ -55,7 +55,7 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 0
-    - _windStreaght: 1
+    - _windStreaght: 0.1
     m_Colors:
     - _Color: {r: 0.10129103, g: 0.6415094, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -71,6 +71,9 @@ MonoBehaviour:
   jumpForce: 4
   gravity: 8
   holdingStrengh: 4
+  RespawnTime: 2
+  MeshRenderer: {fileID: 4191799534469201533}
+  PrefabRespawnParticul: {fileID: 2374147586289704071, guid: b2ada2f4c95ca2d4ca4edb0e6385930d, type: 3}
   frequencyStep: 0.3
   Clips:
   - {fileID: 8300000, guid: a585f62d7cf5a7a47930ac109af2f3b5, type: 3}
@@ -259,6 +262,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3508653424579412025, guid: 25c66f59f7690494387f21f39b6605a1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3508653424579412025, guid: 25c66f59f7690494387f21f39b6605a1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3e4f3f31e3ed7494fae46738d773ee4a, type: 2}
@@ -268,6 +275,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25c66f59f7690494387f21f39b6605a1, type: 3}
+--- !u!137 &4191799534469201533 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3508653424579412025, guid: 25c66f59f7690494387f21f39b6605a1, type: 3}
+  m_PrefabInstance: {fileID: 8458465142274998714}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8279929788637783633 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 25c66f59f7690494387f21f39b6605a1, type: 3}

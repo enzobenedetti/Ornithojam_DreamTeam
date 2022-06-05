@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,6 +17,12 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 1f;
     [SerializeField] private float gravity = 10f;
     [SerializeField] private float holdingStrengh;
+
+    [Header("Respwan Parameters")] 
+    public float RespawnTime=2f;
+    public SkinnedMeshRenderer MeshRenderer;
+    public GameObject PrefabRespawnParticul;
+    
     private float _maxFallSpeed = -2f;
     private float _coyoteTime = 0.1f;
     private float _timeBalise;
@@ -35,9 +42,14 @@ public class CharacterMovement : MonoBehaviour
     private RaycastHit _rayHit;
     private float _groundRayDistance = 6f;
     private bool _isSliding;
+   
 
     private GameObject _cubeHold;
     private bool _isHolding = false;
+    private bool _isRespawning;
+    private float _respawnTimer;
+    private Vector3 _deathpos;
+    private Vector3 _respawnPos;
 
     private bool InPause;
 
@@ -58,6 +70,10 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         if (InPause) return;
+        if (_isRespawning) {
+            ManageRespawn();
+            return;
+        }
 
         if (OnSteepSlope())
         {
@@ -108,6 +124,7 @@ public class CharacterMovement : MonoBehaviour
         {
             moveParticule.Stop();
             _animator.SetBool("Walking", false);
+            _timerSound = frequencyStep;
         }
         else
         {
@@ -217,8 +234,8 @@ public class CharacterMovement : MonoBehaviour
 
     }
 
-    public void DoARespawn(Vector3 respawnPoint)
-    {
+    public void DoARespawn(Vector3 respawnPoint) {
+        /*
         controller.enabled = false;
         transform.position = respawnPoint;
         Debug.Log(respawnPoint);
@@ -226,5 +243,32 @@ public class CharacterMovement : MonoBehaviour
         _velocityY = 0f;
         _velocityZ = 0f;
         controller.enabled = true;
+        */
+        
+        _velocityX = 0f;
+        _velocityY = 0f;
+        _velocityZ = 0f;
+        controller.enabled = false;
+        _deathpos = transform.position;
+        _respawnPos = respawnPoint;
+        _respawnTimer = 0;
+        MeshRenderer.enabled = false;
+        _isRespawning = true;
+        moveParticule.Stop();
+        Instantiate(PrefabRespawnParticul, transform.position, quaternion.identity);
+    }
+
+    private void ManageRespawn()
+    {
+        float t = _respawnTimer / RespawnTime;
+        transform.position = Vector3.Lerp(_deathpos, _respawnPos, t);
+        _respawnTimer += Time.deltaTime;
+        if (_respawnTimer >= RespawnTime) {
+            Instantiate(PrefabRespawnParticul, transform.position, quaternion.identity);
+            MeshRenderer.enabled = true;
+            AudioManager.Instance.PlaySound(nootNoot, 1f);
+            _isRespawning = false;
+            controller.enabled = true;
+        }
     }
 }
