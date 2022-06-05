@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using JetBrains.Annotations;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,6 +11,7 @@ using Random = UnityEngine.Random;
 
 public class CharacterMovement : MonoBehaviour
 {
+    public HUDCompoenent HUDCompoenent;
     public CharacterController controller;
     public ParticleSystem moveParticule;
     public GameObject jumpParticule;
@@ -169,10 +172,17 @@ public class CharacterMovement : MonoBehaviour
         Vector2 movement = value.Get<Vector2>();
         _velocityX = movement.x;
         _velocityZ = movement.y;
+        
+        HUDCompoenent.PressZ( _velocityZ>0);
+        HUDCompoenent.PressS( _velocityZ<0);
+        HUDCompoenent.PressQ( _velocityX<0);
+        HUDCompoenent.PressD( _velocityX>0);
     }
 
-    public void OnJump()
+    public void OnJump(InputValue value)
     {
+        HUDCompoenent.PressSpace(value.isPressed);
+        if (!value.isPressed) return;
         if ((controller.isGrounded || Time.time <= _timeBalise + _coyoteTime) && !_isHolding)
         {
             _velocityY = Mathf.Sqrt(jumpForce);
@@ -181,8 +191,9 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    public void OnAction()
+    public void OnAction(InputValue value)
     {
+        HUDCompoenent.PressGrabe(value.isPressed);
         _isHolding = !_isHolding;
     }
 

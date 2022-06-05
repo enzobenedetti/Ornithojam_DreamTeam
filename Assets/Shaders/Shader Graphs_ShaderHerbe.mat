@@ -39,7 +39,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 1
-    - _AlphaClipimg: 0
+    - _AlphaClipimg: 0.5
     - _Blend: 0
     - _CastShadows: 1
     - _Cull: 2

@@ -64,5 +64,10 @@ public class MainMenuController : MonoBehaviour
         PanelControls.SetActive(false);
         BPControls.Select();
     }
+
+    public void UIBPLoadLevel(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
     
 }
