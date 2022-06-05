@@ -83,7 +83,7 @@ public class CharacterMovement : MonoBehaviour
         {
             Debug.Log("OnSteepSlope");
             _isSliding = true;
-            SteepSlopeMovement();
+            SteepSlopeMovement(_slopeHit);
         }
         else
         {
@@ -93,12 +93,13 @@ public class CharacterMovement : MonoBehaviour
                 {
                     Debug.Log("hello");
                     Debug.DrawRay(transform.position + Vector3.up/2f, -transform.forward * _groundRayDistance, Color.blue);
-                    Debug.DrawRay(transform.position, Vector3.down *_groundRayDistance, Color.yellow);
+                    Debug.DrawRay(transform.position, Vector3.down * (_groundRayDistance/(_groundRayDistance*2f)), Color.yellow);
                     if (Physics.Raycast(transform.position + Vector3.up/2f, -transform.forward, out _rayHit, 
                             (controller.height / 2) + _groundRayDistance) &&
                         !Physics.Raycast(transform.position, Vector3.down, _groundRayDistance/(_groundRayDistance*2f)))
                     {
-                        SteepSlopeMovement();
+                        Debug.Log("wololo");
+                        SteepSlopeMovement(_rayHit);
                     }
                     else
                     {
@@ -110,7 +111,7 @@ public class CharacterMovement : MonoBehaviour
                 }
                 else
                 {
-                    SteepSlopeMovement();
+                    SteepSlopeMovement(_slopeHit);
                     _velocityX /= 20f;
                     _velocityZ /= 20f;
                     _velocityY += _maxFallSpeed * Time.deltaTime;
@@ -241,14 +242,14 @@ public class CharacterMovement : MonoBehaviour
         return false;
     }
 
-    void SteepSlopeMovement()
+    void SteepSlopeMovement(RaycastHit hit)
     {
-        Vector3 slopeDirection = Vector3.up - _slopeHit.normal * Vector3.Dot(Vector3.up, _slopeHit.normal);
+        Vector3 slopeDirection = Vector3.up - hit.normal * Vector3.Dot(Vector3.up, hit.normal);
         float slideSpeed = speed + 1f + Time.deltaTime;
 
         _velocityX = slopeDirection.x * -slideSpeed;
         _velocityZ = slopeDirection.z * -slideSpeed;
-        _velocityY -= _slopeHit.point.y * slideSpeed;
+        _velocityY -= hit.point.y * slideSpeed;
 
     }
 
