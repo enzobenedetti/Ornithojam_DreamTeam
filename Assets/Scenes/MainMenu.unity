@@ -23672,7 +23672,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1063125870}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1026030795}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: UIBPLoadLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1063125870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31826,6 +31838,7 @@ Transform:
   - {fileID: 112288012}
   - {fileID: 593228166}
   - {fileID: 78926826}
+  - {fileID: 1976022078}
   - {fileID: 1627131682}
   - {fileID: 443863855}
   - {fileID: 1801831599}
@@ -31835,7 +31848,6 @@ Transform:
   - {fileID: 1714797305}
   - {fileID: 17567592}
   - {fileID: 1331394319}
-  - {fileID: 1976022078}
   - {fileID: 1964261727}
   - {fileID: 1106172644}
   - {fileID: 949016172}
@@ -40214,7 +40226,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1516858454}
-  m_RootOrder: 17
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1978214320
 PrefabInstance:
